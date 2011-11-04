@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Net-DNS-Dig
-version:             0.02
+version:             0.03
 abstract:            ~
 license:             ~
 author:              ~
@@ -11,7 +11,7 @@ requires:
     Net::DNS::Codes:               0.11
     Net::DNS::ToolKit:             0.43
     Net::NBsocket:                 0.21
-    NetAddr::IP:                   4.049
+    NetAddr::IP:                   4.056
     Sys::Hostname::FQDN:           0.1
     Sys::Sig:                      0.04
 meta-spec:

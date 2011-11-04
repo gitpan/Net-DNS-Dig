@@ -17,7 +17,7 @@ my %makeparms = (
 				Sys::Hostname::FQDN	=> 0.10,
 				Sys::Sig		=> 0.04,
 				Digest::MD5		=> 2.16,
-				NetAddr::IP		=> 4.049
+				NetAddr::IP		=> 4.056
 			},
     'clean'		=> { FILES    => "*~ tmp*"},
     'dist'		=> {COMPRESS=>'gzip', SUFFIX=>'gz'}

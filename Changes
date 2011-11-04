@@ -1,5 +1,15 @@
 Revision history for Perl extension Net::DNS::Dig
 
+0.03  Fri Nov  4 00:03:16 PDT 2011
+	require NetAddr::IP v4.056 to incorporate improved
+	inet_aton from InetBase.pm that compensates for broken
+	gethostbyname in NetBSD and OpenBSD
+
+	update _check4addr with tests for non-address characters in string
+
+	fix broken test that was looking at "real" network data
+	instead of test emulation
+
 0.02  Wed Oct 19 20:45:16 PDT 2011
 	documentation & examples
 	first release

@@ -292,6 +292,10 @@ DESCRIPTION
         [optional]  $AF_family      address family type
         [optional]  $timeout        seconds for the emulation
 
+    ndd_gethostbyname2 provides a fully functional gethostbyname2
+    implementation that will work on systems that do not support IPv6 or
+    have broken IPv6 socket libraries.
+
     If $AF_family is false, ndd_gethostbyname2 will examine the supplied
     $name to try and determine the appropriate AF_family if the name is an
     IPv4 address of the form d+.d+.d+.d+ or and IPv6 address in one of the

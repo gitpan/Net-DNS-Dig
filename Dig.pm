@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.02 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.03 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -67,7 +67,6 @@ $VERSION = do { my @r = (q$Revision: 0.02 $ =~ /\d+/g); sprintf "%d."."%02d" x $
 	ndd_gethostbyname2
 	AF_INET
 	AF_INET6
-	:noSock6
 );
 
 # used a lot, create once per session
@@ -1434,10 +1433,12 @@ sub _check4addr {
   my($len,$netaddr);
 
   if ($af) {					# address family specified
-    if ($af == &AF_INET && ($netaddr = inet_aton($name))) {
+    if ( $af == &AF_INET && $name !~/[^0-9\.]/ &&
+	 ($netaddr = inet_aton($name)) ) {
       $len = 4;
     }
-    elsif ( $af == &AF_INET6 && ($netaddr = ipv6_aton($name))) {
+    elsif ( $af == &AF_INET6 && $name !~ /[^0-9a-fA-F\:]/ &&
+	    ($netaddr = ipv6_aton($name)) ) {
       $len = 16;
     }
     else {
@@ -1445,11 +1446,11 @@ sub _check4addr {
     }
   }
   else {					# family is unknown
-    if ($netaddr = inet_aton($name)) {
+    if ( $name !~/[^0-9\.]/ && ($netaddr = inet_aton($name)) ) {
       $af = &AF_INET;
       $len = 4;
     }
-    elsif ($netaddr = ipv6_aton($name)) {
+    elsif ( $name !~ /[^0-9a-fA-F\:]/ && ($netaddr = ipv6_aton($name)) ) {
       $af = &AF_INET6;
       $len = 16;
     }

@@ -16,6 +16,7 @@ END {print "not ok 1\n" unless $loaded;}
 #use diagnostics;
 use Net::DNS::Dig qw (
 	:noSock6
+	:forceEmu
 	ndd_gethostbyname
 	ndd_gethostbyaddr
 	ndd_gethostbyname2
