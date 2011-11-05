@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.03 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.04 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -762,6 +762,7 @@ This method returns a blessed object containing the binary query response object
 
 =cut
 
+# deprecated
 my %allowed = (
         A       =>      T_A,
         AAAA    =>      T_AAAA,
@@ -775,6 +776,10 @@ my %allowed = (
         PTR     =>      T_PTR,
 );
 
+my %not_allowed = (
+	IXFR	=>	T_IXFR,
+);
+
 sub for($$$) {									# NOT LOADABLE
   my($self,$name,$Type) = @_;
   $Type = 'A' unless $Type;
@@ -782,10 +787,18 @@ sub for($$$) {									# NOT LOADABLE
 # check arguments
   die "you must provide name to look up\n" unless $name;
 
-  die "unsupported type '$Type'\n"
-	unless $Type && ($Type = uc $Type) && exists $allowed{$Type};
+  $Type = uc $Type;
+  my $ttype = 'T_'. $Type;
 
-  my $ttype = $allowed{$Type};
+  if ( $not_allowed{$Type} || ! exists $Net::DNS::Codes::{$ttype}) {
+    die "unsupported type '$Type'\n";
+    $ttype = do { no strict; &$ttype; };
+  } else {
+    $ttype = do { no strict; &$ttype; };
+  }
+
+# deprecated by above in v0.04
+#  my $ttype = $allowed{$Type};
 
   die "unsupported class '$self->{Class}'\n"
 	unless $self->{Class} eq 'IN';

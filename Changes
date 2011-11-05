@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::DNS::Dig
 
+0.04  Sat Nov  5 15:38:09 PDT 2011
+	remove most restrictions on resource record types
+
 0.03  Fri Nov  4 00:03:16 PDT 2011
 	require NetAddr::IP v4.056 to incorporate improved
 	inet_aton from InetBase.pm that compensates for broken
