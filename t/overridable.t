@@ -17,7 +17,7 @@ foreach (keys %ENV) {
 
 unless ($tcount < 2) {	# not make test
   print "1..1\n";
-  print "ok 2\n";
+  print "ok 1\n";
 } else {
   my $func = $ARGV[0];
   unless ($func) {

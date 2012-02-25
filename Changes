@@ -1,5 +1,9 @@
 Revision history for Perl extension Net::DNS::Dig
 
+0.05  Fri Feb 24 16:46:52 PST 2012
+	fixed flawed test in proc_body.t that only fails on some platforms
+	fix typo in overidable.t
+
 0.04  Sat Nov  5 15:38:09 PDT 2011
 	remove most restrictions on resource record types
 

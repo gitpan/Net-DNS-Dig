@@ -1153,7 +1153,7 @@ $ap = makebuf(\$ans2);
 $qp = makebuf(\$ques2);
 
 ## test 7	check server failure
-$dig = new Net::DNS::Dig( PeerAddr => [inet_aton('3.4.5.6'),inet_aton('5.6.7.8')]);
+$dig = new Net::DNS::Dig( PeerAddr => ['3.4.5.6', '5.6.7.8']);
 $rp = $dig->_proc_body($ap,$qp,$get,$put,\$soacount);
 #print_head($rp);
 #print "\n";
@@ -1161,7 +1161,7 @@ $rp = $dig->_proc_body($ap,$qp,$get,$put,\$soacount);
 chk_exp($rp,\$ans2);
 
 ## test 8	check object contents
-$exp = q|144	= {
+$exp = q|146	= {
 	'ADDITIONAL'	=> [{
 		'CLASS'	=> 1,
 		'NAME'	=> 'ns1.google.com',
@@ -1293,7 +1293,7 @@ $exp = q|144	= {
 		'TC'	=> 0,
 	},
 	'NRECS'	=> 14,
-	'PeerAddr'	=> ['','',],
+	'PeerAddr'	=> ['3.4.5.6','5.6.7.8',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
 	'QUESTION'	=> [{
@@ -1305,6 +1305,8 @@ $exp = q|144	= {
 	'Recursion'	=> 1,
 	'Timeout'	=> 15,
 	'_SS'	=> {
+		'3.4.5.6'	=> '',
+		'5.6.7.8'	=> '',
 	},
 };
 |;
