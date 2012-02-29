@@ -41,7 +41,7 @@ my $exp = q|11	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -62,7 +62,7 @@ $exp = q|12	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'XXX'	=> 'xxx',
 	'_SS'	=> {
@@ -83,7 +83,7 @@ $exp = q|12	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -105,7 +105,7 @@ $exp = q|12	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -128,7 +128,7 @@ $exp = q|11	= {
 	'PeerAddr'	=> ['4.3.2.1','8.7.6.5',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'4.3.2.1'	=> '',
@@ -148,7 +148,7 @@ $exp = q|11	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 1234,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -168,7 +168,7 @@ $exp = q|11	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 4567,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -188,7 +188,7 @@ $exp = q|11	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -216,7 +216,7 @@ $exp = q|11	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'TCP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',
@@ -236,7 +236,7 @@ $exp = q|11	= {
 	'PeerAddr'	=> ['12.34.56.78','97.65.43.21',],
 	'PeerPort'	=> 53,
 	'Proto'	=> 'UDP',
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'Timeout'	=> 15,
 	'_SS'	=> {
 		'12.34.56.78'	=> '"8N',

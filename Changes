@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::DNS::Dig
 
+0.06  Tue Feb 28 18:27:02 PST 2012
+	default Recursion 'RD' bit in wrong place, corrected
+
 0.05  Fri Feb 24 16:46:52 PST 2012
 	fixed flawed test in proc_body.t that only fails on some platforms
 	fix typo in overidable.t

@@ -578,7 +578,7 @@ my $exp = q|142	= {
 		'TYPE'	=> 1,
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '23.45.67.89',
 	'Timeout'	=> 15,
 	'_SS'	=> {
@@ -741,7 +741,7 @@ $exp = q|144	= {
 		'TYPE'	=> 'A',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '23.45.67.89',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t a google.com.
@@ -1299,7 +1299,7 @@ $exp = q|147	= {
 		'TYPE'	=> 15,
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '23.45.67.89',
 	'Timeout'	=> 15,
 	'_SS'	=> {
@@ -1461,7 +1461,7 @@ $exp = q|149	= {
 		'TYPE'	=> 'MX',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '23.45.67.89',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t mx gmail.com.
@@ -2020,7 +2020,7 @@ $exp = q|147	= {
 		'TYPE'	=> 15,
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '23.45.67.89',
 	'Timeout'	=> 15,
 	'_SS'	=> {
@@ -2182,7 +2182,7 @@ $exp = q|149	= {
 		'TYPE'	=> 'MX',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '23.45.67.89',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t mx gmail.com.

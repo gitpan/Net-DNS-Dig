@@ -1171,7 +1171,7 @@ my $load1 = q|193	= {
 		'TYPE'	=> 'ANY',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '1.2.3.4',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t any gmail.com.
@@ -1389,7 +1389,7 @@ my $load2 = q|174	= {
 		'TYPE'	=> 'AAAA',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '3.2.1.0',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t aaaa arpa.com.

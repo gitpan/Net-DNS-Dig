@@ -1903,7 +1903,7 @@ my $exp = q|495	= {
 		'TYPE'	=> 252,
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '12.34.56.78',
 	'Timeout'	=> 15,
 	'_SS'	=> {
@@ -2393,7 +2393,7 @@ $exp = q|497	= {
 		'TYPE'	=> 'AXFR',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '12.34.56.78',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t axfr example.com.
@@ -2949,7 +2949,7 @@ $exp = q|497	= {
 		'TYPE'	=> 'AXFR',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '12.34.56.78',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t axfr example.com.
@@ -4295,7 +4295,7 @@ $exp = q|35	= {
 		'TYPE'	=> 252,
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '12.34.56.78',
 	'Timeout'	=> 15,
 	'_SS'	=> {
@@ -4353,7 +4353,7 @@ $exp = q|37	= {
 		'TYPE'	=> 'AXFR',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '12.34.56.78',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t axfr example.com.

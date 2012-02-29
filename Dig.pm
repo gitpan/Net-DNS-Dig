@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.05 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.06 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -660,12 +660,12 @@ sub new {
 # special server name processing if user supplied NS
   _get_nameservers($self);
 
-  $self->{Recursion} = $self->{Recursion}
-	? 1 : 0;
-
   foreach(keys %Defaults) {
-    $self->{$_} = $Defaults{$_} unless $self->{$_};
+    $self->{$_} = $Defaults{$_} unless exists $self->{$_};
   }
+
+  $self->{Recursion} = &RD
+	if $self->{Recursion};
 
 # correct case of Class and Proto
   $self->{Class}	= uc $self->{Class};

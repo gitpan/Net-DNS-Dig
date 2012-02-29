@@ -711,7 +711,7 @@ my $exp = q|174	= {
 		'TYPE'	=> 'AAAA',
 	},
 ],
-	'Recursion'	=> 1,
+	'Recursion'	=> 256,
 	'SERVER'	=> '127.1',
 	'TEXT'	=> '
 ; <<>> Net::DNS::Dig 0.01 <<>> -t aaaa arpa.com.
