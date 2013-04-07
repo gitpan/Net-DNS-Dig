@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.06 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.07 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -611,6 +611,10 @@ else {
       PeerPort  => 53,		# default
       Proto     => 'UDP',	# default
       Recursion => 1,		# default
+      QuesHead	=> 0,		# default, print question header
+      QuesBody	=> 0,		# default, print question body
+      RespHead	=> 0,		# default, print response header
+      RespBody	=> 0,		# default, print response body
     );
 
 =cut
@@ -867,6 +871,10 @@ sub for($$$) {									# NOT LOADABLE
   unless ($resptr) {	# if server failed
     $self->_proc_body($resptr,\$buffer,$get,$put);
   }
+  print_head(\$buffer)	if $self->{QuesHead};
+  print_buf(\$buffer)	if $self->{QuesBody};
+  print_head($resptr)	if $self->{RespHead};
+  print_buf($resptr)	if $self->{RespBody};
   $self->_elapsed(@time);
   return $self;
 }
@@ -1773,7 +1781,7 @@ Example usage of Net::DNS::Dig
 
 Michael Robinton <michael@bizsystems.com>
 
-=head1 COPYRIGHT 2011 
+=head1 COPYRIGHT 2011-2013
 
 Michael Robinton <michael@bizsystems.com>
 

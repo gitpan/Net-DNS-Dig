@@ -62,6 +62,10 @@ DESCRIPTION
            PeerPort  => 53,          # default
            Proto     => 'UDP',       # default
            Recursion => 1,           # default
+           QuesHead  => 0,           # default, print question header
+           QuesBody  => 0,           # default, print question body
+           RespHead  => 0,           # default, print response header
+           RespBody  => 0,           # default, print response body
          );
 
     * $dobj = $dig->for(name, type);
@@ -515,7 +519,7 @@ EXPORTS_OK
 AUTHOR
     Michael Robinton <michael@bizsystems.com>
 
-COPYRIGHT 2011
+COPYRIGHT 2011-2013
     Michael Robinton <michael@bizsystems.com>
 
     All rights reserved.
