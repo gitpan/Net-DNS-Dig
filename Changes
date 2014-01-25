@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::DNS::Dig
 
+0.08  Fri Jan 24 17:15:00 PST 2014
+	add Errno to the return object
+
 0.07  Sun Apr  7 14:16:12 PDT 2013
 	add application develpoer debug tools
       QuesHead  => 0,           # default, print question header

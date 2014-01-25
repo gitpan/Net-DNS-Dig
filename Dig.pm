@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.07 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.08 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -702,6 +702,8 @@ This method returns a blessed object containing the binary query response object
 	Proto	  => input value,
 	Recursion => input value,
 
+	Errno	  => posix error number or set to zero
+
 	ELAPSED	  => milliseconds,	# query time
 	NRECS	  => number of records,
 	BYTES	  => number of bytes
@@ -868,9 +870,12 @@ sub for($$$) {									# NOT LOADABLE
     }
     last if $resptr;
   }
-  unless ($resptr) {	# if server failed
+  if ($resptr) {
+    $! = 0;		# errno unconditionally set to zero
+  } else {		# server failed
     $self->_proc_body($resptr,\$buffer,$get,$put);
   }
+  $self->{Errno} = $!;
   print_head(\$buffer)	if $self->{QuesHead};
   print_buf(\$buffer)	if $self->{QuesBody};
   print_head($resptr)	if $self->{RespHead};
