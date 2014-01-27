@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.08 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.09 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -1786,7 +1786,7 @@ Example usage of Net::DNS::Dig
 
 Michael Robinton <michael@bizsystems.com>
 
-=head1 COPYRIGHT 2011-2013
+=head1 COPYRIGHT 2011-2014
 
 Michael Robinton <michael@bizsystems.com>
 

@@ -31,10 +31,16 @@ sub MY::top_targets {
 }
 
 sub MY::post_constants {
-  my $post_constants = q|
-MY_POD2TEXT = |. $Config{scriptdirexp} .'/pod2text' .q|   
+  my $post_constants = $Config{scriptdirexp} .'/pod2text';
+  if (-e $post_constants) {
+    $post_constants = q|
+MY_POD2TEXT = |. $post_constants .q|
 |;
-} 
+  } else {   
+    $post_constants = q|
+MY_POD2TEXT = echo "perl distro missing 'pod2text' to convert " |;
+  }
+}
 
 sub MY::postamble {
   package MY;

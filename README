@@ -86,6 +86,8 @@ DESCRIPTION
              Proto     => input value,
              Recursion => input value,
 
+             Errno     => posix error number or set to zero
+
              ELAPSED   => milliseconds,      # query time
              NRECS     => number of records,
              BYTES     => number of bytes
@@ -519,7 +521,7 @@ EXPORTS_OK
 AUTHOR
     Michael Robinton <michael@bizsystems.com>
 
-COPYRIGHT 2011-2013
+COPYRIGHT 2011-2014
     Michael Robinton <michael@bizsystems.com>
 
     All rights reserved.
