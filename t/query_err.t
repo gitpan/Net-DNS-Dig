@@ -47,6 +47,8 @@ sub ok {
 my($rout,$wout,$found);
 # rout and wout are flags
 
+local @_;
+
 sub select {
 # rin, win, ein, timeout
   $_[0] = $rout ? $_[0] : '';
