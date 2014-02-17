@@ -31,7 +31,6 @@ sub ok {
   ++$test;
 }
 
-local @_;
 my $selected = 0;
 
 sub select {

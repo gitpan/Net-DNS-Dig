@@ -59,7 +59,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 
-$VERSION = do { my @r = (q$Revision: 0.10 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.12 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 @EXPORT_OK = qw(
 	ndd_gethostbyaddr
@@ -124,7 +124,7 @@ sub import {
   Net::DNS::Dig->export_to_level(1,@_);
 }
 
-=head1	NAME
+=head1 NAME
 
 Net::DNS::Dig - dig like methods
 
@@ -226,7 +226,7 @@ sub _elapsed {
 #
 sub _tcp_write {
   my($sock,$bp,$len,$timeout) = @_;
-  my($win,$wout,$ein,$eout,$delta,$wrote);
+  my($dummyin,$dummyout,$win,$wout,$ein,$eout,$delta,$wrote);
   my $fileno = fileno($sock);
   my $written = 0;
   my $then = time;
@@ -235,10 +235,10 @@ sub _tcp_write {
   local $SIG{PIPE} = 'IGNORE';
 
   while ($len > 0) {
-    $win = '';
+    $dummyin = $win = '';
     vec($win,fileno($sock),1) = 1;
     $ein = $win;
-    my $nbfound = select(undef,$wout=$win,undef,0.1);
+    my $nbfound = select($dummyout=$dummyin,$wout=$win,undef,0.1);
     if ($nbfound > 0) {
       if ($wout) {	# ready to write
 	$wrote = syswrite($sock,$buffer,$len,$written);
@@ -275,7 +275,7 @@ sub _tcp_write {
 #
 sub _tcp_read {
   my($sock,$bp,$len,$timeout) = @_;
-  my($rin,$rout,$ein,$eout,$delta,$rcv);
+  my($dummyin,$dummyout,$rin,$rout,$ein,$eout,$delta,$rcv);
   my $off = 0;
   my $nleft = $len;
   my $fileno = fileno($sock);
@@ -285,10 +285,10 @@ sub _tcp_read {
   local $SIG{PIPE} = 'IGNORE';
 
   while (1) {
-    $rin = '';
+    $dummyin = $rin = '';
     vec($rin,$fileno,1) = 1;
     $ein = $rin;
-    my $nbfound = select($rout=$rin,undef,undef,0.1);
+    my $nbfound = select($rout=$rin,$dummyout=$dummyin,undef,0.1);
     if ($nbfound > 0) {
       if ($rout) {	# ready to read
 	$rcv = sysread($sock,$buffer,$nleft,$off);
@@ -404,14 +404,14 @@ sub _query {
 
   local $SIG{PIPE} = 'IGNORE';
 
-  my ($rout,$delta,$urcv,$response);
-  my $rin = '';
+  my ($dummyin,$dummyout,$rout,$delta,$urcv,$response);
+  my $rin = $dummyin= '';
   my $then = time;
   my $data = $$bp;
   my $len = send $sock, $data, 0, $sin;
   while (1) {
 	vec($rin,$fileno,1) = 1;		# set read flags
-	my $nbfound = select($rout=$rin,undef,undef,0.1);	# tick every 100ms
+	my $nbfound = select($rout=$rin,$dummyout=$dummyin,undef,0.1);	# tick every 100ms
 	if ($nbfound > 0) {			# found something
 	  if ($rout) {				# if it is real
 	    $urcv = recv($sock,$response,NS_PACKETSZ,0);

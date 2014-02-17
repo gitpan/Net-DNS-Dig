@@ -1,5 +1,13 @@
 Revision history for Perl extension Net::DNS::Dig
 
+0.12  Sun Feb 16 20:25:52 PST 2014
+	changed TAB in =head1{TAB}NAME to space to receive
+	METACPAN parsing error. Thanks to NEILB@cpan.org
+	for spotting that error and reporting it.
+
+0.11  Mon Feb  3 15:40:23 PST 2014
+	modify select statements in Dig.pm to try and quell test error below
+
 0.10  Mon Jan 27 21:01:35 PST 2014
 	provide local @_ for test suite *CORE substitutions in
 	query_err.t
